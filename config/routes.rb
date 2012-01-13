@@ -1,4 +1,16 @@
 FairyWhaleDemo::Application.routes.draw do
+  resources :users
+
+  resources :comments
+
+  resources :categories
+
+  resources :types
+
+  resources :node_comments
+
+  resources :nodes
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

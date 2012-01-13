@@ -1,0 +1,23 @@
+class Node < ActiveRecord::Base
+   belongs_to :user
+  belongs_to :category
+  belongs_to :type
+end
+
+class Comment < ActiveRecord::Base
+  belongs_to :user
+end
+
+class Category < ActiveRecord::Base
+  has_many :nodes
+end
+
+class Type < ActiveRecord::Base
+  has_many :nodes
+end
+
+class User < ActiveRecord::Base
+  has_many :nodes
+  has_many :comments
+end
+

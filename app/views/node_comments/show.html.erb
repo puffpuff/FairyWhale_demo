@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Node:</b>
+  <%= @node_comment.node_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @node_comment.comment_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_node_comment_path(@node_comment) %> |
+<%= link_to 'Back', node_comments_path %>

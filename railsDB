@@ -1,0 +1,7 @@
+rails generate scaffold User username:string password:string email:string
+rails generate scaffold Comment content:string voteUp:integer voteDown:integer
+rails generate scaffold Category title:string
+rails generate scaffold Type title:string
+rails generate scaffold NodeComment node_id:integer comment_id:integer
+rails generate scaffold Node title:string content:text user_id:integer views:integer voteUp:integer voteDown:integer root:boolean category_id:integer type_id:integer
+
