@@ -1,15 +1,27 @@
 FairyWhaleDemo::Application.routes.draw do
+  #get "sessions/new"
   resources :users
-
+  resources :sessions, :only => [:new, :create, :destroy]
   resources :comments
-
   resources :categories
-
   resources :types
-
   resources :node_comments
-
   resources :nodes
+
+  root :to => 'pages#home' #root
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+  match '/home', :to => 'pages#home' #get "pages/home"
+  match '/stories',   :to => 'nodes#stories' #get "pages/zgodbe"
+  match '/about',   :to => 'pages#about' #get "pages/zgodba"
+  match '/newstory', :to => 'nodes#new'
+  match '/nodes/:id/add', :to => 'nodes#addnode'
+  resources :nodes do
+    member do
+      get :zgodba
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

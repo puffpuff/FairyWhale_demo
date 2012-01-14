@@ -32,6 +32,18 @@ class NodesController < ApplicationController
     end
   end
 
+  def addnode
+    @node = current_user.nodes.build(params[:node])
+    end 
+
+  def stories
+    @node = Node.where(:root => true)
+        respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @node }
+    end
+  end
+
   # GET /nodes/1/edit
   def edit
     @node = Node.find(params[:id])
@@ -40,7 +52,8 @@ class NodesController < ApplicationController
   # POST /nodes
   # POST /nodes.json
   def create
-    @node = Node.new(params[:node])
+    @node = current_user.nodes.build(params[:node])
+    #@node = Node.new(params[:node])
 
     respond_to do |format|
       if @node.save

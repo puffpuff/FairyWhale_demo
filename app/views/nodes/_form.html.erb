@@ -20,34 +20,37 @@
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :views %><br />
-    <%= f.number_field :views %>
-  </div>
-  <div class="field">
-    <%= f.label :voteUp %><br />
-    <%= f.number_field :voteUp %>
-  </div>
-  <div class="field">
-    <%= f.label :voteDown %><br />
-    <%= f.number_field :voteDown %>
-  </div>
-  <div class="field">
     <%= f.label :root %><br />
     <%= f.check_box :root %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
+    <%= f.select(:category_id, Category.all.collect{|p| [p.title, p.id]} )%>
   </div>
   <div class="field">
     <%= f.label :type_id %><br />
-    <%= f.number_field :type_id %>
+    <%= f.select(:type_id, Type.all.collect{|p| [p.title, p.id]} ) %>
   </div>
+    <br />
+  Testni nameni
+  <div class="field">
+    <%= f.label :voteUp %><br />
+    <%= f.text_field :voteUp %>
+  </div>
+  <div class="field">
+    <%= f.label :voteDown %><br />
+    <%= f.text_field :voteDown %>
+  </div>
+    <div class="field">
+    <%= f.label :views %><br />
+    <%= f.text_field :views %>
+  </div>
+    <br />
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+  
+
+
 <% end %>

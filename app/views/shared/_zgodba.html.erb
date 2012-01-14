@@ -1,0 +1,14 @@
+<% @node ||= current_node %>
+<div class="story">
+  <table summary="Node stats">
+    <tr>
+      <td>
+        <a href="<%= story(@node) %>">
+          <span id="story" class="stat">
+            <%= @node.story.count %> St Node-ov
+          </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,53 @@
+<h1>Add content</h1>
+
+<%= form_for(@node) do |f| %>
+  <% if @node.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@node.errors.count, "error") %> prohibited this node from being saved:</h2>
+
+      <ul>
+      <% @node.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.select(:category_id, Category.all.collect{|p| [p.title, p.id]} )%>
+  </div>
+  <div class="field">
+    <%= f.label :type_id %><br />
+    <%= f.select(:type_id, Type.all.collect{|p| [p.title, p.id]} ) %>
+  </div>
+    <br />
+  Testni nameni
+  <div class="field">
+    <%= f.label :voteUp %><br />
+    <%= f.text_field :voteUp %>
+  </div>
+  <div class="field">
+    <%= f.label :voteDown %><br />
+    <%= f.text_field :voteDown %>
+  </div>
+    <div class="field">
+    <%= f.label :views %><br />
+    <%= f.text_field :views %>
+  </div>
+    <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', nodes_path %>

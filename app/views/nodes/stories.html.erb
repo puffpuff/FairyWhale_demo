@@ -1,0 +1,18 @@
+
+<h1>Stories</h1>
+	
+	<% @node.each do |node| %>
+	<div class="story_replay round">
+	  	<%= link_to node.title, node_path(node) %><br />
+		<%= node.content %> <br />
+		<div class="story_info round">
+		  <b>U:</b> <%= User.find(node.user_id).username %>
+		  <b>V:</b> <%= node.views %>
+		  <b>Like:</b> <%= node.voteUp %> 
+		  <b>DisLike:</b><%= node.voteDown %>
+		</div>
+		<%= link_to 'Edit', edit_node_path(node), :class =>'edit_delete funkcije' %>
+        <%= link_to 'Destroy', node, confirm: 'Are you sure?', method: :delete , :class =>'edit_delete funkcije' %>   
+	</div> 
+	   
+	<% end %>

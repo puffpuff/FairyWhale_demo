@@ -1,0 +1,17 @@
+<header>
+        <%= image_tag("logo1.png", :alt => "Fairy Whale Logo", :class => "round") %>
+        <nav class="round">
+          <ul>
+          	<li><%= link_to "Home", root_path %></li>
+          	<li><%= link_to "Stories", stories_path %></li>
+            <% if signed_in? %>
+      		<li><%= link_to "Profile", current_user %></li>
+      		<li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+      		<li id="funkcije"><%= link_to "(+) New story", newstory_path %></li>
+      		<% else %>
+      		<li><%= link_to "Sing in", signin_path %></li>
+            <li><%= link_to "Create Account", signup_path %></li>
+          	<% end %>
+          </ul>
+        </nav>
+      </header>
